@@ -1,9 +1,11 @@
 import "./App.css";
-import Navbar from "./Components/Navbar";
-import Player from "./Components/Player";
-import SideSection from "./Components/SideSection";
-import MainWindow from "./Components/MainWindow";
+// import Navbar from "./Components/Navbar";
+// import Player from "./Components/Player";
+// import SideSection from "./Components/SideSection";
+// import MainWindow from "./Components/MainWindow";
 import { useEffect, useState } from "react";
+import Welcomepage from "./Components/Welcomepage";
+import MobilePlayer from "./Components/MobilePlayer";
 
 // const apiUrl = process.env.REACT_APP_API_URL;
 // const apiKey = process.env.REACT_APP_API_KEY;
@@ -14,7 +16,20 @@ import { useEffect, useState } from "react";
 
 
 function App() {
-  const [accessToken, setAccessToken] = useState("")
+  const [accessToken, setAccessToken] = useState("");
+  const [showLoader, setShowLoader] = useState(true);
+  const [showPlayer, setShowPlayer] = useState(false);
+
+useEffect(() => {
+  const intervalID = setInterval(() => {
+    setShowLoader(false);
+    setShowPlayer(true)
+  }, 5000);
+
+  return () => clearInterval(intervalID);
+}, []);
+
+
 console.log(accessToken)
 
 useEffect(()=>{
@@ -67,10 +82,13 @@ const getArtistData = async () => {
 console.log(getArtistData())
   return (
     <>
-      <Navbar />
+    {showLoader &&  <Welcomepage/> }
+    {showPlayer &&  <MobilePlayer/>}
+
+      {/* <Navbar />
       <SideSection />
       <MainWindow />
-      <Player />
+      <Player /> */}
     </>
   );
 }

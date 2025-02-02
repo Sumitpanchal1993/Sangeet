@@ -1,0 +1,122 @@
+.mobilePlayerBase{
+    color: white;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    /* border: 1px solid black; */
+    height: 100vh;
+    /* width: 100vw; */
+    /* position: relative; */
+    background-image: linear-gradient(10deg, orange, black, purple);
+}
+
+.topBar{
+    position: relative;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+
+}
+
+/* cd and its rotaing animation */
+.photo {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  
+  .cd {
+    width: 300px; /* Size of the CD */
+    height: 300px; /* Size of the CD */
+    background-color: #ccc;
+    border-radius: 50%; /* Make it a circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    animation: rotateCd 10s linear infinite; /* Add rotation animation */
+  }
+  
+  .cd-img {
+    width: 95%; /* Adjust image size inside the circle */
+    height: 95%; /* Adjust image size inside the circle */
+    border-radius: 50%; /* Make the image also round */
+    object-fit: cover; /* Ensure the image fits nicely in the circle */
+  }
+  
+  .cd::before {
+    content: '';
+    position: absolute;
+    width: 50px; /* Inner circle representing the hole in the CD */
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Rotation animation */
+  @keyframes rotateCd {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+  .progress{
+    position: absolute;
+    bottom: 20%;
+    margin: 1rem 0;
+    /* width: 100%; */
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+  }
+  .progress input{
+    width:250px
+  }
+
+.controls{
+    position: absolute;
+    bottom: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: larger;
+    margin: 1rem 0;
+}
+
+.controls span {
+    font-size: 35px;
+}
+
+
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    position: absolute;
+    bottom: 2%;
+}
+
+.menu span {
+    font-size: 35px;
+}
