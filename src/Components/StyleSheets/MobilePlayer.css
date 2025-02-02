@@ -57,8 +57,8 @@
   .cd::before {
     content: '';
     position: absolute;
-    width: 50px; /* Inner circle representing the hole in the CD */
-    height: 50px;
+    min-width: 50px; /* Inner circle representing the hole in the CD */
+    min-height: 50px;
     background-color: #fff;
     border-radius: 50%;
     top: 50%;
